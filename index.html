@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Live Translation & Lip Sync Broadcast</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="neon-text">AI Live Translation</span> & Lip Sync Broadcast</h1>
+            <p>Real-time multilingual broadcasting with voice cloning and lip synchronization</p>
+        </header>
+
+        <main class="api-interface">
+            <section class="endpoint-section">
+                <h2>🏥 Health Check</h2>
+                <button class="btn-health" onclick="checkHealth()">Check System Health</button>
+                <div id="health-result" class="result-box"></div>
+            </section>
+
+            <section class="endpoint-section">
+                <h2>📹 Full Broadcast Translation</h2>
+                <p>Upload audio/video file and translate to multiple languages simultaneously</p>
+                
+                <div class="file-upload">
+                    <input type="file" id="broadcast-file" accept="audio/*,video/*">
+                    <label for="broadcast-file">
+                        <span>Select Broadcast Audio/Video</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 4l-4 4 4 4H4c-1 0-1 1 0 2h4c0-1 1-1 1-1h10c1 0 1 1 1 1v2h2v-2c0-1-1-1-1-1h-7.5l3.75-3.75z"/>
+                        </svg>
+                    </label>
+                </div>
+                
+                <div class="settings-row">
+                    <div class="setting-group">
+                        <label>Target Languages</label>
+                        <div class="chips">
+                            <span class="chip active" data-lang="es">ES</span>
+                            <span class="chip active" data-lang="fr">FR</span>
+                            <span class="chip active" data-lang="de">DE</span>
+                            <span class="chip active" data-lang="hausa">HA</span>
+                            <span class="chip active" data-lang="yoruba">YO</span>
+                            <span class="chip active" data-lang="swahili">SW</span>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>Options</label>
+                        <div class="options">
+                            <label>
+                                <input type="checkbox" id="lip-sync" checked>
+                                <span>Lip Sync</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="voice-clone" checked>
+                                <span>Voice Cloning</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-primary btn-translate" onclick="translateBroadcast()">Translate Broadcast</button>
+                <button class="btn-secondary" onclick="clearForm()">Clear</button>
+                
+                <div id="translate-result" class="result-box" style="display: none;"></div>
+            </section>
+
+            <section class="endpoint-section">
+                <h2>📄 Recorded Clip Translation</h2>
+                <p>Translate recorded audio/video clips</p>
+                
+                <div class="file-upload">
+                    <input type="file" id="clip-file" accept="audio/*,video/*">
+                    <label for="clip-file">
+                        <span>Select Clip</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 4l-4 4 4 4H4c-1 0-1 1 0 2h4c0-1 1-1 1-1h10c1 0 1 1 1 1v2h2v-2c0-1-1-1-1-1h-7.5l3.75-3.75z"/>
+                        </svg>
+                    </label>
+                </div>
+                
+                <div class="setting-group">
+                    <label>Target Language</label>
+                    <select id="clip-language">
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="hausa">Hausa</option>
+                        <option value="yoruba">Yoruba</option>
+                        <option value="swahili">Swahili</option>
+                    </select>
+                </div>
+                
+                <button class="btn-primary" onclick="translateClip()">Translate Clip</button>
+                <div id="clip-result" class="result-box" style="display: none;"></div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>AI Live Translation & Lip Sync Broadcast Solution</p>
+        <p>Breaking language barriers in real-time broadcasting</p>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
